@@ -1,0 +1,23 @@
+<ul class="row">
+    <li class="col-sm-4 equal-hight">
+      <div class="inner">
+          <div class="icon" style="font-size:50px;color:#005aab;"><span class="icon-map-marker-icon"></span></div>
+          <h3>Address</h3>
+          <p style="font-size:18px;color:#000;">No 18, Ung Van Khiem, Dong Xuyen ward, Long Xuyen city, An Giang province</p>
+      </div>
+    </li>
+    <li class="col-sm-4 equal-hight">
+      <div class="inner">
+          <div class="icon" style="font-size:50px;color:#005aab;"><span class="icon-phone-icon"></span></div>
+        <h3>Phone</h3>
+        <p style="font-size:18px;color:#000;">02963.943.695</p>
+      </div>
+    </li>
+    <li class="col-sm-4 equal-hight">
+      <div class="inner">
+          <div class="icon" style="font-size:50px;color:#005aab;"><span class="icon-envelop-icon"></span></div>
+          <h3>Email</h3>
+          <p style="font-size:18px;color:#000;">shrc@agu.edu.vn</p>
+      </div>
+    </li>
+  </ul>

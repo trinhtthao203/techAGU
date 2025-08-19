@@ -1,0 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #373737;
+    line-height: 26px;
+    font-weight: normal;
+}
+.cke_wysiwyg_div.cke_editable {
+    font-family: 'Roboto', sans-serif;
+}
+
+.cke_panel_container {
+    font-family: 'Roboto', sans-serif;
+}
