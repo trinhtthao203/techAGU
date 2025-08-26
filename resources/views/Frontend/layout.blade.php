@@ -7,11 +7,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}assets/frontend/images/favicon.png">
-<title> @yield('title') | {{ __('Khoa Nông nghiệp & TNTN') }}</title>
+<title> @yield('title') | {{ __('Khoa Kỹ thuật - Công nghệ - Môi trường') }}</title>
 <meta property="og:url"           content="{{ Request::fullUrl() }}" />
-<meta property="og:type"          content="{{ __('Khoa Nông nghiệp & TNTN') }}" />
-<meta property="og:title"         content="@yield('title', __('Khoa Nông nghiệp & TNTN'))" />
-<meta property="og:description"   content="@yield('description' , __('Khoa Nông nghiệp & TNTN là đơn vị sự nghiệp trực thuộc Trường Đại học An Giang.'))" />
+<meta property="og:type"          content="{{ __('Khoa Kỹ thuật - Công nghệ - Môi trường') }}" />
+<meta property="og:title"         content="@yield('title', __('Khoa Kỹ thuật - Công nghệ - Môi trường'))" />
+<meta property="og:description"   content="@yield('description' , __('Khoa Kỹ thuật - Công nghệ - Môi trường là đơn vị sự nghiệp trực thuộc Trường Đại học An Giang.'))" />
 <meta property="og:image"         content="@yield('image', 'https://shrc.agu.edu.vn/assets/frontend/images/logo.jpg')" />
 <!-- Reset CSS -->
 <link href="{{ env('APP_URL') }}assets/frontend/css/reset.css" rel="stylesheet" type="text/css">
@@ -37,19 +37,29 @@
 <link href="{{ env('APP_URL') }}assets/frontend/css/custom.css" rel="stylesheet" type="text/css">
 <link href="{{ env('APP_URL') }}assets/frontend/css/owl.carousel.css" rel="stylesheet">
 <link href="{{ env('APP_URL') }}assets/frontend/css/owl.theme.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
 
 <style>
-  .centered-text {
-    text-align: center;
-    margin-top: 2px;
-    background-color: #06b429; /* Đặt màu nền cho div */
-    padding: 10px; /* Thêm padding cho div để tạo khoảng cách với nội dung */
-
-  }
+.centered-text {
+  text-align: center;
+  /* phủ lớp đen 50% lên ảnh */
+  background-color: #E9CD4F;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px 10px 10px 10px;
+}
   .centered-text span {
-    font-size: 28px;
-    color: white;
+    font-size: 24px;
+    color: black;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
   }
 
   @media only screen and (max-width: 768px) {
@@ -94,10 +104,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-5 clearfix">
-            <h3 style="padding-bottom:5px;color:#fff;">{{ __('KHOA NÔNG NGHIỆP TÀI NGUYÊN THIÊN NHIÊN') }}</h3> 
+            <h3 style="padding-bottom:5px;color:#fff;">{{ __('KHOA KỸ THUẬT - CÔNG NGHỆ - MÔI TRƯỜNG') }}</h3>
             <p><i class="fa fa-map-marker"></i> <a href="{{ env('APP_URL') }}vi/lien-he" style="color:#fff;">{{ __('Số 18, đường Ung Văn Khiêm, phường Long Xuyên, tỉnh An Giang') }}</a></p>
-            <p><i class="fa fa-envelope"></i> <a href="mailto:agri@agu.edu.vn" style="color:#fff;">agri@agu.edu.vn</a></p>
-            <p><i class="fa fa-phone" aria-hidden="true" style="font-size:17px;"></i> <a href="tel:02963943695" style="color:#fff;">02963.943.695</a></p>
+            <p><i class="fa fa-envelope"></i> <a href="mailto:tech@agu.edu.vn" style="color:#fff;">tech@agu.edu.vn</a></p>
+            <p><i class="fa fa-phone" aria-hidden="true" style="font-size:17px;"></i> <a href="tel:0766516132" style="color:#fff;">0766.516.132</a></p>
           </div>
       </div>
     </div>
