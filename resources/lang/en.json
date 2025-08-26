@@ -1,5 +1,5 @@
 {
-    "TRUNG TÂM NGHIÊN CỨU XÃ HỘI VÀ NHÂN VĂN TRƯỜNG ĐẠI HỌC AN GIANG": "SOCIAL SCIENCES AND HUMANITIES RESEARCH CENTER AN GIANG UNIVERSITY",
+"TRUNG TÂM NGHIÊN CỨU XÃ HỘI VÀ NHÂN VĂN TRƯỜNG ĐẠI HỌC AN GIANG": "SOCIAL SCIENCES AND HUMANITIES RESEARCH CENTER AN GIANG UNIVERSITY",
     "Địa chỉ": "Address",
     "Số 18, đường Ung Văn Khiêm, phường Long Xuyên, tỉnh An Giang": "No 18, Ung Van Khiem street, Long Xuyen ward, An Giang province",
     "Điện thoại": "Phone",
@@ -33,6 +33,7 @@
     "Thông báo": "Announcements",
     "Hình ảnh hoạt động": "Activities Images",
     "Tin tức": "News",
+    "Tin tức - Sự kiện": "News - Events",
     "HÌNH ẢNH": "PICTURES",
     "ĐÍNH KÈM": "ATTACHMENTS",
     "DỊCH VỤ LIÊN QUAN": "RELATED SERVICES",
@@ -46,7 +47,7 @@
     "Đào tạo": "Training",
     "Hình ảnh - Banner": "Images - Banners",
     "Liên hệ": "Contact",
-    "Nghiên cứu khoa học": "Scientific Research",
+    "Nghiên cứu khoa học": "Research",
     "Khóa luận tốt nghiệp": "Graduation thesis",
     "Văn bản - Biểu mẫu": "Document - Form",
     "Văn bản": "Document",
@@ -141,8 +142,12 @@
     "Đảm bảo chất lượng": "Quality Assurance",
     "NCKH": "Research",
     "Liên Kết": "Links",
-    "Đối ngoại": "International activity",    
+    "Đối ngoại": "International activity",
     "Thư Viện": "Library",
-    "Đoàn Thanh niên": "HCM Communist Youth Union"
-    
+    "Đoàn Thanh niên": "HCM Communist Youth Union",
+    "KHOA KỸ THUẬT - CÔNG NGHỆ - MÔI TRƯỜNG":"FACULTY OF ENGINEERING - TECHNOLOGY - ENVIROMENT",
+    "Bộ môn Công nghệ kỹ thuật môi trường":"Department of Environmental Engineering Technology",
+    "Bộ môn Quản lý tài nguyên và môi trường":"Department of Natural Resources and Environmental Management",
+    "Bộ môn Công nghệ kỹ thuật hóa học": "Department of Chemical Engineering Technology",
+    "Đoàn khoa KT-CN-MT":"Youth Union of the Faculty of Engineering – Technology – Environment"
   }

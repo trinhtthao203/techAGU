@@ -26,11 +26,25 @@
       <div class="right-block clearfix">
         <ul class="top-nav" style="margin-left:0px;">
           <li><a href="#" onclick="return false;" class="search"><i class="fa fa-search"></i></a></li>
-          @if(app()->getLocale() == 'vi')
+          <!-- @if(app()->getLocale() == 'vi')
             <li><a href="{{ $path_en }}" title="{{ __('English') }}">{{ __('EN') }}</a></li>
           @endif
           @if(app()->getLocale() == 'en')
             <li><a href="{{ $path_vi }}" title="{{ __('Tiếng Việt') }}">{{ __('VI') }}</a></li>
+          @endif -->
+           @if(app()->getLocale() == 'vi')
+             <li>
+                <a href="{{ $path_en }}" title="{{ __('English') }}">
+                EN<img src="{{ asset('assets/frontend/images/icon_en.png') }}" alt="English" style="width:20px; height:auto; margin-left:5px;">
+                </a>
+            </li>
+          @endif
+          @if(app()->getLocale() == 'en')
+             <li>
+                <a href="{{ $path_vi }}" title="{{ __('Tiếng Việt') }}">
+                VI <img src="{{ asset('assets/frontend/images/icon_vi.png') }}" alt="Tiếng Việt" style="width:20px; height:auto; margin-left:5px;">
+                </a>
+            </li>
           @endif
         </ul>
       </div>
@@ -73,19 +87,18 @@
         <ul class="nav navbar-nav">
           <li class="dropdown"><a data-toggle="dropdown" href="#">{{ __('Giới thiệu') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/overview" >{{ __('Tổng quan') }}</a></li> 
+              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/overview" >{{ __('Tổng quan') }}</a></li>
               <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/faculty-leaders">{{ __('Ban Lãnh đạo khoa') }}</a></li>
               <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/faculty-office">{{ __('Văn phòng khoa') }}</a></li>
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-food-technology">{{ __('Bộ môn Công nghệ Thực phẩm') }}</a></li>
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-aquaculture">{{ __('Bộ môn Nuôi trồng Thủy sản') }}</a></li>
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-biotechnology">{{ __('Bộ môn Công nghệ Sinh học') }}</a></li>
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-animal-husbandry-and-veterinary-medicine">{{ __('Bộ môn Chăn nuôi Thú y') }}</a></li>
+              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-food-technology">{{ __('Bộ môn Công nghệ kỹ thuật môi trường') }}</a></li>
+              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-aquaculture">{{ __('Bộ môn Quản lý tài nguyên và môi trường') }}</a></li>
+              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-biotechnology">{{ __('Bộ môn Công nghệ kỹ thuật hóa học') }}</a></li>
+              <!-- <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-animal-husbandry-and-veterinary-medicine">{{ __('Bộ môn Chăn nuôi Thú y') }}</a></li>
               <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-crop-science">{{ __('Bộ môn Khoa học Cây trồng') }}</a></li>
-              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-rural-development-and-natural-resource-management">{{ __('Bộ môn Phát triển Nông thôn và QLTNTN')}} </a></li>
+              <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/personnel/department-of-rural-development-and-natural-resource-management">{{ __('Bộ môn Phát triển Nông thôn và QLTNTN')}} </a></li> -->
             </ul>
           </li>
-          <li><a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/news" >{{ __('Tin tức') }}</a>
-          <!--<li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Tin tức') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+        <!--<li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Tin tức') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
               <li><a class="fonta"  href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/all">{{ __('Tất cả tin tức') }}</a></li>
               <li><a class="fonta"  href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/announcement">{{ __('Thông báo') }}</a></li>
@@ -97,7 +110,7 @@
           <li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Đào tạo') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <!-- <ul class="dropdown-menu">
               <li><a class="fontli" >{{ __('Đại học') }}</a></li>
-                <ul> 
+                <ul>
                   <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/university-programs/food-technology"> {{ __('Công nghệ thực phẩm') }}</a></li>
                   <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/university-programs/ensuring-quality-&-food-safety">{{ __('Đảm bảo chất lượng & ATVSTP') }}</a></li>
                   <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/university-programs/aquaculture">{{ __('Nuôi trồng Thuỷ sản')  }}</a></li>
@@ -118,39 +131,41 @@
             </ul> -->
             <ul class="dropdown-menu">
               <li><a class="fontli" >{{ __('Đại học') }}</a></li>
-                <ul> 
+                <ul>
                 @foreach($list_dtdh as $ds)
-                  <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/university-programs/{{$ds['slug']}}">{{$ds['ten']}}</a></li>        
+                  <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/university-programs/{{$ds['slug']}}">{{$ds['ten']}}</a></li>
                 @endforeach
                 </ul>
               <li><a class="fontli">{{ __('Thạc sỹ') }}</a></li>
                 <ul >
                 @foreach($list_dtts as $ds)
-                  <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/masters-programs/{{$ds['slug']}}">{{$ds['ten']}}</a></li>        
+                  <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/training/masters-programs/{{$ds['slug']}}">{{$ds['ten']}}</a></li>
                 @endforeach
                 </ul>
             </ul>
           </li>
-          <li><a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/qa" >{{ __('Đảm bảo chất lượng') }}</a>
-          </li>
-          <li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('NCKH') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+           <li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Nghiên cứu khoa học') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
               <li><a class="fontli" >{{ __('Giảng viên') }}</a></li>
                 <ul>
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/elementary-level-topic">{{ __('Đề tài cấp Cơ sở') }}</a></li>  
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/school-level-topic">{{ __('Đề tài cấp Trường') }}</a></li> 
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/provincial-level-topic">{{ __('Đề tài cấp Tỉnh') }}</a></li> 
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/national-university-level-topic">{{ __('Đề tài cấp ĐHQG') }}</a></li> 
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/elementary-level-topic">{{ __('Đề tài cấp Cơ sở') }}</a></li>
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/school-level-topic">{{ __('Đề tài cấp Trường') }}</a></li>
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/provincial-level-topic">{{ __('Đề tài cấp Tỉnh') }}</a></li>
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/scientific-research/national-university-level-topic">{{ __('Đề tài cấp ĐHQG') }}</a></li>
                   </ul>
               <li><a class="fontli">{{ __('Sinh viên') }}</a></li>
                 <ul>
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/graduation-thesis/graduation-thesis">{{ __('Khóa luận tốt nghiệp') }}</a></li> 
-                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/graduation-thesis/thesis">{{ __('Chuyên đề tốt nghiệp') }}</a></li> 
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/graduation-thesis/graduation-thesis">{{ __('Khóa luận tốt nghiệp') }}</a></li>
+                    <li><a class="fonta" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/graduation-thesis/thesis">{{ __('Chuyên đề tốt nghiệp') }}</a></li>
                 </ul>
             </ul>
           </li>
+          <!-- <li><a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/qa" >{{ __('Đảm bảo chất lượng') }}</a>
+          </li> -->
+
           <li><a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/international-cooperation" >{{ __('Đối ngoại') }}</a>
           </li>
+            <li><a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/news" >{{ __('Tin tức - Sự kiện') }}</a>
           <li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Văn bản - Biểu mẫu') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
               <li><a class="fontla" href="{{ env('APP_URL') }}{{ app()->getLocale() }}/document">{{ __('Văn bản') }}</a></li>
@@ -159,10 +174,11 @@
           </li>
           <li class="dropdown"><a href="#"  data-toggle="dropdown" >{{ __('Liên Kết') }} <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
-              <li><a class="fontla" href="https://cpv.agu.edu.vn/">{{ __('Công tác Đảng') }}</a></li>
-              <li><a class="fontla" href="https://youth.agu.edu.vn/">{{ __('Đoàn Thanh niên') }}</a></li>              
-              <li><a class="fontla" href="https://union.agu.edu.vn/">{{ __('Công đoàn') }}</a></li>
-              <li><a class="fontla" href="https://lib.agu.edu.vn/">{{ __('Thư Viện') }}</a></li>
+              <li><a class="fontla" target="_blank" href="https://cpv.agu.edu.vn/">{{ __('Công tác Đảng') }}</a></li>
+              <li><a class="fontla" target="_blank" href="https://youth.agu.edu.vn/">{{ __('Đoàn Thanh niên') }}</a></li>
+              <li><a class="fontla" target="_blank" href="https://union.agu.edu.vn/">{{ __('Công đoàn') }}</a></li>
+              <li><a class="fontla" target="_blank" href="https://lib.agu.edu.vn/">{{ __('Thư Viện') }}</a></li>
+              <li><a class="fontla" target="_blank" href="https://www.facebook.com/dkktcnmtruong/">{{ __('Đoàn khoa KT-CN-MT') }}</a></li>
             </ul>
           </li>
 
@@ -174,8 +190,8 @@
               <li><a href="{{ env('APP_URL') }}en/documents">Documents</a></li>
             </ul>
           </li> -->
-          
-                
+
+
         </ul>
       </div>
     </div>
