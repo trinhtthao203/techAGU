@@ -1301,10 +1301,11 @@ ul.our-strength li .title {
 }
 .news-events h2 span {
     color: #2d4256;
+    text-align: justify;
 }
 .news-events ul {
     display: block;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 .news-events ul li .inner {
     display: block;
@@ -1320,7 +1321,7 @@ ul.our-strength li .title {
 }
 .news-events ul li .cnt-block {
     display: block;
-    padding: 40px 30px 30px 30px;
+    padding: 20px 10px 10px 10px;
     background: #fff;
     position: relative;
 }
@@ -1328,7 +1329,7 @@ ul.our-strength li .title {
     display: block;
     width: 64px;
     height: 64px;
-    line-height: 60px;
+    line-height: 30px;
     text-align: center;
     position: absolute;
     right: 20px;
@@ -1469,6 +1470,94 @@ ul.our-strength li .title {
 .news-events a.know-more:hover span {
     color: #17a43b;
 }
+
+/* NEW */
+.news-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.news-card-img {
+  position: relative;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-card-img {
+  transform: scale(1.05);
+}
+.news-card-tags span {
+  position: relative;
+  display: inline-block;
+  margin: 7px;
+  padding: 0px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #211d1e;
+  border-radius: 7px;
+  overflow: hidden; /* tránh nền tràn ra ngoài */
+  z-index: 1;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.news-card-tags span::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* full nền */
+  background: rgba(255, 234, 44, 1);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  z-index: -1; /* nằm dưới chữ */
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.news-card-tags span:hover::before {
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.45);
+}
+
+.news-card-btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 17px;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    /* màu xanh trong suốt */
+    background-color: #236DB4 ; /* 0.8 = độ trong suốt */
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    backdrop-filter: blur(4px); /* tạo cảm giác mờ đẹp */
+}
+
+.news-card-btn:hover {
+    background-color: #4DB792; /* hover thì đậm hẳn */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color:#E9CD4F
+}
+
+.news-card-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 
 /*-----------------------
     campus tour
@@ -6261,6 +6350,7 @@ ul.listing-news li a{
 .inner .news_icon {
   position: absolute;
   width: 50px;
+  height: 50px;
   top: 10px; right: 30px;
   border-radius: 60px;
 }

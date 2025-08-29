@@ -35,12 +35,17 @@ class FrontendController extends Controller
         }
         else
         {
-            $danhsach_dao_tao = DaoTao::where('locale', '=', $locale)->where('tags','=','University Programs')->orderBy('date_post', 'desc')->paginate(30);   
+            $danhsach_dao_tao = DaoTao::where('locale', '=', $locale)->where('tags','=','University Programs')->orderBy('date_post', 'desc')->paginate(30);
         }
-        
+
         $danhsach_hinh_anh_hoat_dong=HinhAnhHoatDong::orderBy('order', 'asc')->orderBy('date_post', 'desc')->paginate(27);
         $danhsach_hinh_anh_hoat_dong2=Category::orderBy('order', 'asc')->orderBy('date_post', 'desc')->paginate(27);
-        $danhsach_category=Category::where('locale', '=', $locale)->orderBy('tin_moi', 'desc')->orderBy('date_post', 'desc')->paginate(9);
+        // $danhsach_category=Category::where('locale', '=', $locale)->orderBy('tin_moi', 'desc')->orderBy('date_post', 'desc')->paginate(9);
+        $danhsach_category = Category::where('locale', '=', $locale)
+        ->orderBy('tin_moi', 'desc')   // tin mới trước
+        ->orderBy('thu_tu', 'asc')     // rồi xét thứ tự tăng dần
+        ->orderBy('date_post', 'desc') // cuối cùng theo ngày đăng
+        ->paginate(9);
         return view('Frontend.index')->with(compact('danhsach_dao_tao','danhsach_hinh_anh_hoat_dong2','danhsach_hinh_anh_hoat_dong','danhsach_category'));
     }
     // function nhiem_vu_khoa_hoc_cong_nghe(Request $request, $locale = '') {
@@ -126,7 +131,7 @@ class FrontendController extends Controller
     }
     function dao_tao_ct(Request $request, $locale = '', $slugtags = '', $slug='') {
         $ds = DaoTao::where('locale', '=', $locale)->where('slugtags', '=', $slugtags)->where('slug','=',$slug)->first();
-        $danhsach = DaoTao::where('slugtags', '=', $slugtags)->where('locale', '=', $locale)->paginate(7); 
+        $danhsach = DaoTao::where('slugtags', '=', $slugtags)->where('locale', '=', $locale)->paginate(7);
         return view('Frontend.dao-tao-ct')->with(compact('danhsach', 'ds'));
     }
     function dao_tao_tag(Request $request, $locale = '', $key = 0) {
@@ -205,7 +210,7 @@ class FrontendController extends Controller
     //     return Storage::download($file_path, $name);
     // }
     function van_ban(Request $request, $locale = '') {
-        $cats = VanBanController::get_cats(); 
+        $cats = VanBanController::get_cats();
         return view('Frontend.van-ban')->with(compact('cats'));
     }
     function van_ban_ct(Request $request, $locale = '', $slug = '') {
@@ -280,7 +285,7 @@ class FrontendController extends Controller
         {
             if($tags=='faculty-leaders'){
                 $tagsvi='ban-lanh-dao-khoa';
-                $file_path = base_path('resources/lang/') . $locale .('/tong-quan-faculty-leaders.txt');  
+                $file_path = base_path('resources/lang/') . $locale .('/tong-quan-faculty-leaders.txt');
             }
             elseif($tags=='faculty-office'){
                 $tagsvi='van-phong-khoa';
@@ -383,7 +388,7 @@ class FrontendController extends Controller
     }
     function category(Request $request, $locale = '') {
         $cats = CategoryController::get_cats();
-        $danhsach=Category::where('locale', '=', $locale)->orderBy('date_post', 'desc')->paginate(9); 
+        $danhsach=Category::where('locale', '=', $locale)->orderBy('date_post', 'desc')->paginate(9);
         return view('Frontend.category-all')->with(compact('danhsach','cats'));
     }
     function category_cats(Request $request, $locale = '', $key = 0) {
@@ -396,9 +401,9 @@ class FrontendController extends Controller
         return view('Frontend.category')->with(compact('danhsach','cats','key'));
     }
     function category_ct(Request $request, $locale = '', $slug = '') {
-       
+
         $ds = Category::where('locale', '=', $locale)->where('slug', '=', $slug)->first();
-        //$danhsach = Category::where('id_cat','=',$ds['id_cat'])->where('locale', '=', $locale)->paginate(7);		
+        //$danhsach = Category::where('id_cat','=',$ds['id_cat'])->where('locale', '=', $locale)->paginate(7);
 		$danhsach = Category::where('_id','=',$ds['_id'])->where('locale', '=', $locale)->paginate(7);
         return view('Frontend.category-ct')->with(compact('danhsach', 'ds'));
     }
@@ -420,5 +425,5 @@ class FrontendController extends Controller
         $danhsach_hinh_anh_hoat_dong2=Category::orderBy('date_post', 'desc')->paginate(27);
         return view('Frontend.hinh-anh-hoat-dong')->with(compact('danhsach','danhsach_hinh_anh_hoat_dong2'));
     }
-   
+
 }
