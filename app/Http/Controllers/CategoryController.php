@@ -28,6 +28,7 @@ class CategoryController extends Controller
         'de-tai'=>'Đề tài',
         'hoi-thao'=>'Hội thảo',
         'dam-bao-chat-luong'=>'Đảm bảo chất lượng',
+        'thong-bao-he-chinh-quy'=>'Thông báo hệ chính quy'
 
     );
     protected const CATSEN = array(
@@ -44,6 +45,7 @@ class CategoryController extends Controller
         'topic'=>'Topic',
         'seminar'=>'Seminar',
         'qa'=>'Quality Assurance',
+        'full-time-notice'=>'Fulltme Notice',
     );
 
     static function get_cats() {
@@ -59,11 +61,17 @@ class CategoryController extends Controller
         if($locale=='vi')
             $cats = self::CATS;
         else{
-            $cats = self::CATSEN;            
-        }        
+            $cats = self::CATSEN;
+        }
         $keywords = $request->input('keywords');
-        //$danhsach = Category::where('locale','=',$locale)->orderBy('date_post', 'desc')->paginate(30);        
-        $danhsach = Category::where('locale','=',$locale)->orderBy('date_post', 'desc')->limit(30)->get();
+        //$danhsach = Category::where('locale','=',$locale)->orderBy('date_post', 'desc')->paginate(30);
+        // $danhsach = Category::where('locale','=',$locale)->orderBy('date_post', 'desc')->limit(30)->get();
+        $danhsach = Category::where('locale','=',$locale)
+                    ->orderBy('tin_moi', 'desc')
+                    ->orderBy('date_post', 'desc')
+                    ->limit(30)
+                    ->get();
+
 
         $danhsach->transform(function ($category) use ($locale) {
             $translation = TranslatePath::where("id_{$locale}", ObjectController::ObjectId($category->_id))->select('id_vi', 'id_en')->first();
@@ -71,7 +79,7 @@ class CategoryController extends Controller
             $category->translation = $translationArray;
             return $category;
         });
-            
+
     if($danhsach->toArray()); // Kiểm tra dữ liệu đầy đủ
         return view('Admin.Category.list')->with(compact('danhsach', 'cats'));
     }
