@@ -457,7 +457,7 @@ input:focus, textarea:focus, select:focus {
     color: #4DB792;
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
-    background: #037367;
+    background: #73994B;
 }
 .navbar-form {
     width: 100%;
@@ -524,14 +524,25 @@ input:focus, textarea:focus, select:focus {
     width: 0;
     position: static;
     border-color: rgba(255, 150, 0, 0);
-    border-bottom-color: #4DB792;
+    border-bottom-color: #73994B;
     border-width: 10px;
 }
 .navbar .dropdown-menu > li > a {
     padding: 8px 15px;
 }
-.navbar .dropdown-menu > li > a:focus, .navbar .dropdown-menu > li > a:hover {
-    background: #4DB792;
+.navbar .dropdown > a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.navbar .dropdown:hover {
+    background-color: #73994B;
+}
+.navbar .dropdown:hover > a {
+    color: #fff;
+}
+
+.navbar .dropdown-menu > li > a:focus,
+.navbar .dropdown-menu > li > a:hover {
+    background: #73994B;
     color: #fff;
 }
 
@@ -555,7 +566,7 @@ input:focus, textarea:focus, select:focus {
     width: 50%;
     height: 100%;
     object-fit: cover;   /* quan trọng */
-    object-position: center bottom; /* căn giữa ảnh */
+    object-position: center; /* căn giữa ảnh */
     display: block;
 }
 
@@ -595,12 +606,12 @@ input:focus, textarea:focus, select:focus {
     color: #24343a;
     line-height: 50px;
     text-transform: uppercase;
-    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
 }
 .banner-outer .content h1 span {
     display: block;
     font-size: 62px;
-    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
 .banner-outer .content p {
     display: block;
@@ -609,10 +620,10 @@ input:focus, textarea:focus, select:focus {
     font-size: 16px;
     color: #24343a;
     opacity: 0.8;
-    -webkit-animation-delay: 0.34s;
+    animation-delay: 0.34s;
 }
 .banner-outer .content a.btn {
-    -webkit-animation-delay: 0.36s;
+    animation-delay: 0.36s;
 }
 .banner-outer .slide2 .content a.btn {
     margin: 0 10px;
@@ -1515,17 +1526,17 @@ ul.our-strength li .title {
   content: "";
   position: absolute;
   inset: 0; /* full nền */
-  background: rgba(255, 234, 44, 1);
+  background: rgba(255, 234, 44, 0.5);
   backdrop-filter: blur(5px);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
-  border-radius: 8px;
+  box-shadow: outset 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 20px;
   z-index: -1; /* nằm dưới chữ */
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .news-card-tags span:hover::before {
   background: rgba(0, 0, 0, 0.65);
-  box-shadow: inset 0 3px 8px rgba(0,0,0,0.45);
+  box-shadow: outset 0 3px 8px rgba(0,0,0,0.45);
 }
 
 .news-card-btn {
@@ -1537,13 +1548,9 @@ ul.our-strength li .title {
     position: absolute;
     bottom: 15px;
     right: 15px;
-
-    /* màu xanh trong suốt */
-    background-color: #236DB4 ; /* 0.8 = độ trong suốt */
-    color: #fff;
+    color: rgba(35, 109, 180, 1);
     font-size: 15px;
     font-weight: 500;
-    backdrop-filter: blur(4px); /* tạo cảm giác mờ đẹp */
 }
 
 .news-card-btn:hover {
@@ -3320,7 +3327,7 @@ ul.cert-list li span {
     vertical-align: middle;
     font-family: 'FontAwesome';
     content: "\f071";
-    float: right;
+    /* float: right; */
 }
 .msg-success {
     display: block;
@@ -3336,7 +3343,7 @@ ul.cert-list li span {
     vertical-align: middle;
     font-family: 'FontAwesome';
     content: "\f00c";
-    float: right;
+    /* float: right; */
 }
 
 /* ================================================== */
@@ -3504,7 +3511,7 @@ ul.post-detail li .label {
     display: inline-block;
     margin-top: 5px;
     background: #bed1db;
-    float: right;
+    /* float: right; */
     padding: 1.5px 5px;
     border-radius: 3px;
     font-size: 11px;
@@ -4443,7 +4450,7 @@ ul.select-opt li label {
     margin: 0px;
     z-index: 9;
     cursor: pointer;
-    -webkit-transition: all 0.25s linear;
+    transition: all 0.25s linear;
 }
 ul.select-opt li .check {
     display: block;
@@ -5480,7 +5487,7 @@ a.btn-circle:hover {
         display: inline-block;
         vertical-align: middle;
         margin-top: -4px;
-        float: right;
+        /* float: right; */
         content: " + ";
     }
     .footer .foot-nav h3.open:after {
