@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8 col-md-8">
-                <h3 style="padding-bottom:20px;text-transform:uppercase;color: #058B3C;"><i class="fa fa-newspaper-o"></i> {{ __('Tin tức') }}</h3>
+                <h3 style="padding:20px 0px; text-transform:uppercase; color: #058B3C;"><i class="fa fa-newspaper-o"></i> {{ __('Tin tức - Sự kiện') }}</h3>
             </div>
         </div>
         @if($danhsach_category)
@@ -21,9 +21,6 @@
                         @if(isset($ds['id_cat']) && $ds['id_cat'])
                         <div class="news-card-tags">
                             <span class="tags">{{__( implode(" / ", $ds['id_cat']) )}}</span>
-                            <!-- @foreach($ds['id_cat'] as $cat)
-                            <span>{{ $cat }}</span>
-                            @endforeach -->
                         </div>
                         @endif
                     </div>
@@ -42,65 +39,25 @@
 
                     <div class="news-card-body" style="padding:30px 20px 20px 20px;">
                         <ul class="post-detail">
-                            <li style="display: flex; align-items: center; gap:5px;">
+                            <li style="position: relative; display: flex; align-items: center; gap: 5px;">
                                 <span class="icon-date-icon ico"></span>
                                 <span class="bold">
                                     {{ App\Http\Controllers\ObjectController::getDate($ds['date_post'], "d/m/Y H:i") }}
                                 </span>
-
                                 @if(isset($ds['tin_moi']) && $ds['tin_moi'])
                                 <img src="{{ env('APP_URL') }}assets/frontend/images/news.gif"
                                     alt="{{ $ds['ten'] }}"
                                     title="{{ $ds['ten'] }}"
-                                    style=" width:30px; height:25px; border-radius:10px;">
+                                    style="position:absolute; right: 0px; top: 50%; transform: translateY(-50%); width: 50px; height: 50px;">
                                 @endif
                             </li>
                         </ul>
-
-                        <!-- <ul class="post-detail">
-                            <li>
-                                <span class="icon-date-icon ico"></span>
-                                <span class="bold">{{ App\Http\Controllers\ObjectController::getDate($ds['date_post'], "d/m/Y H:i") }}
-                                    @if(isset($ds['tin_moi']) && $ds['tin_moi'])
-                                    <img src="{{ env('APP_URL') }}assets/frontend/images/news.gif"
-                                        alt="{{ $ds['ten'] }}"
-                                        title="{{ $ds['ten'] }}"
-                                        style=" width:30px; height:30px; z-index:5;border-radius: 10px;">
-                                    @endif
-                                </span>
-
-                            </li>
-                        </ul> -->
                         <h5 style="height:80px;overflow:hidden;padding-top:7px; line-height: 24px;"><a href="{{ env('APP_URL').app()->getLocale() }}/category/{{ $ds['slug'] }}/ct" title="{{ $ds['ten'] }}">{{ Str::limit($ds['ten'],100) }}</a></h5>
                         <p style="height:100px;overflow:hidden; text-align: justify;">{{Str::limit($ds['mo_ta'],120) }}</p>
                         <a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/{{ $ds['slug'] }}/ct" class="news-card-btn btn-animated">Xem thêm</a>
                     </div>
                 </div>
             </li>
-            <!-- <li class="col-xs-6 col-sm-4 grid-item" style="left: 0px; top: 0px;">
-              <div class="inner">
-                @if(isset($ds['tin_moi']) && $ds['tin_moi'])
-                    <img src="{{ env('APP_URL') }}assets/frontend/images/news.gif" alt="{{ $ds['ten'] }}" title="{{ $ds['ten'] }}" class="news_icon">
-                @endif
-                  @if(isset($ds['id_cat']) && $ds['id_cat'])
-                    <span class="tags">{{__( implode(" / ", $ds['id_cat']) )}}</span>
-                  @endif
-                @if($ds['photos'] && isset($ds['photos'][0]['aliasname']) && $ds['photos'][0]['aliasname'])
-                    <img src="{{ env('APP_URL') }}storage/images/thumb_360x200/{{ $ds['photos'][0]['aliasname'] }}" class="img-responsive" alt="" style="object-fit: cover;width:360px;height:200px;">
-                @else
-                    <img src="{{ env('APP_URL') }}assets/frontend/images/default_thumb.jpg" class="img-responsive" alt="">
-                @endif
-                <div class="cnt-block">
-                    <ul class="post-detail">
-                      <li><span class="icon-date-icon ico"></span> <span class="bold">{{ App\Http\Controllers\ObjectController::getDate($ds['date_post'], "d/m/Y H:i") }}</li>
-                    </ul>
-                    <h2 style="height:125px;overflow:hidden;"><a href="{{ env('APP_URL').app()->getLocale() }}/category/{{ $ds['slug'] }}/ct" title="{{ $ds['ten'] }}">{{ Str::limit($ds['ten'],100) }}</a></h2>
-                    <p  style="height:100px;overflow:hidden; text-align: justify;">{{ $ds['mo_ta'] }}</p>
-                    <br />
-                    <a href="{{ env('APP_URL') }}{{ app()->getLocale() }}/category/{{ $ds['slug'] }}/ct" class="read-more"><span class="icon-play-icon"></span>{{ __('Xem thêm') }}</a>
-                </div>
-                </div>
-            </li> -->
             @endforeach
         </ul>
         {{ $danhsach_category->withPath(env('APP_URL').app()->getLocale() . '') }}
